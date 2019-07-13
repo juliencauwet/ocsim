@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  #rooms:
+  #  container_name: rooms
+  #  build:
+  #    context: .
+  #  image: jaycecordon/vlcampaigns:0.0.1-SNAPSHOT
+  #  ports:
+  #    - "8642:8642"
+
+  db-campaign:
+    image: postgres:alpine
+    ports:
+      - '5432:5432'
+    container_name: db_ocsim
+    environment:
+      POSTGRES_DB: db_ocsim
+      POSTGRES_USER: ocsim
+      POSTGRES_PASSWORD: ocsim
+    volumes:
+      - './sql:/docker-entrypoint-initdb.d'
+    restart: always
+    network_mode: bridge
