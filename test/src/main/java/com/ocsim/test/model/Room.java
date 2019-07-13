@@ -24,9 +24,13 @@ public class Room {
 
     private String name;
 
+    private boolean availability;
+
     @OneToMany(
             cascade = CascadeType.ALL,
             mappedBy = "room"
     )
     private Set<Event> events = new HashSet<>();
+
+
 }
