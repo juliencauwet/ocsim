@@ -24,7 +24,9 @@ public class Event {
 
     private Date time;
 
-    private Boolean status;
+    private String status;
+
+    private String roomName;
 
     @ManyToOne
     @JoinColumn(name = "room")

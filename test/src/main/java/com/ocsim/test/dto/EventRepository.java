@@ -1,12 +1,10 @@
 package com.ocsim.test.dto;
 
-import com.ocsim.test.model.Room;
+import com.ocsim.test.model.Event;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RoomRepository extends JpaRepository <Room, Integer> {
-
-    Room findByName(String name);
+public interface EventRepository extends JpaRepository<Event, Integer> {
 
 }
