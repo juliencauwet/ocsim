@@ -18,6 +18,10 @@ import java.util.Set;
 @AllArgsConstructor
 public class Room {
 
+    public Room(String name){
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue
     private int id;

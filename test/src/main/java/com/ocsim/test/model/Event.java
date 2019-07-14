@@ -3,6 +3,7 @@ package com.ocsim.test.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -16,6 +17,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "event")
 public class Event {
 
     @Id
@@ -24,12 +26,12 @@ public class Event {
 
     private Date time;
 
-    private String status;
+    private String event;
 
-    private String roomName;
+    private String room;
 
     @ManyToOne
-    @JoinColumn(name = "room")
-    private Room room;
+    @JoinColumn(name = "room_object")
+    private Room roomObject;
 
 }

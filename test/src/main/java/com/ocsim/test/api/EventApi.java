@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 
 /**
  * point d'entrée de l'API
@@ -26,15 +27,16 @@ public class EventApi {
     private EventService eventService;
 
     /**
-     * réception d'un évènement en provenance des salles, changement du statut de la salle en fonction de l'évènement, enregistrement de l'évènement
+     * réception d'un évènement en provenance des salles, recherche de la salle en fonction de son nom, changement du statut de la salle en fonction de l'évènement, enregistrement de l'évènement
      * @param event
      */
     @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public void receiveEvent(@RequestBody Event event){
         logger.info("##### receiveEvent method #####");
-        Room room = roomService.getRoomByName(event.getRoomName());
-        room.setAvailability(event.getStatus() == "motion:on" ? true : false);
+        Room room = roomService.getRoomByName(event.getRoom());
+        room.setAvailability(event.getEvent() == "motion:on" ? true : false);
         roomService.saveRoom(room);
+        event.setRoomObject(room);
         eventService.saveEvent(event);
     }
 
