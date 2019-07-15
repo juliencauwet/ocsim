@@ -1,7 +1,7 @@
 package com.ocsim.test;
 
 import com.ocsim.test.model.Room;
-import com.ocsim.test.services.RoomService;
+import com.ocsim.test.services.impl.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

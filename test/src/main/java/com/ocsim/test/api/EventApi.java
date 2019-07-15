@@ -2,8 +2,8 @@ package com.ocsim.test.api;
 
 import com.ocsim.test.model.Event;
 import com.ocsim.test.model.Room;
-import com.ocsim.test.services.EventService;
-import com.ocsim.test.services.RoomService;
+import com.ocsim.test.services.impl.EventService;
+import com.ocsim.test.services.impl.RoomService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * point d'entrée de l'API
+ * point d'entrée de l'API concernant les évènements
  */
 @RequestMapping("/events")
 @RestController

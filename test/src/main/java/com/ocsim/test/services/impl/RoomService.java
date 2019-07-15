@@ -1,14 +1,17 @@
-package com.ocsim.test.services;
+package com.ocsim.test.services.impl;
 
 import com.ocsim.test.dto.RoomRepository;
 import com.ocsim.test.model.Room;
+import com.ocsim.test.services.IRoomService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class RoomService {
+public class RoomService implements IRoomService {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -45,5 +48,8 @@ public class RoomService {
     }
 
 
-
+    @Override
+    public List<Room> findRoomsWithAtLeastOneEvent() {
+        return null;
+    }
 }
