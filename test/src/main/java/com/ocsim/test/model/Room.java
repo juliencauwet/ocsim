@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * entité Event: composée d'un identifiant unique et d'un nom de salle
+ * entité Event: composée d'un identifiant unique et d'un nom de salle, ainsi que d'un statut de disponibilité
  * Lombok est utilisé pour les constructeurs, les setters/getters, et le toString()
  */
 @Entity
