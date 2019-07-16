@@ -1,5 +1,6 @@
 package com.ocsim.test.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,9 +17,10 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Room {
+@Table(name = "room_object")
+public class RoomObject {
 
-    public Room(String name){
+    public RoomObject(String name){
         this.name = name;
     }
 
@@ -30,9 +32,10 @@ public class Room {
 
     private boolean availability;
 
+    @JsonIgnore
     @OneToMany(
             cascade = CascadeType.ALL,
-            mappedBy = "room"
+            mappedBy = "roomObject"
     )
     private Set<Event> events = new HashSet<>();
 

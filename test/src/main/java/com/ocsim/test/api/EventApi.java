@@ -1,9 +1,9 @@
 package com.ocsim.test.api;
 
 import com.ocsim.test.model.Event;
-import com.ocsim.test.model.Room;
+import com.ocsim.test.model.RoomObject;
 import com.ocsim.test.services.impl.EventService;
-import com.ocsim.test.services.impl.RoomService;
+import com.ocsim.test.services.impl.RoomObjectService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class EventApi {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private RoomService roomService;
+    private RoomObjectService roomService;
 
     @Autowired
     private EventService eventService;
@@ -34,7 +34,7 @@ public class EventApi {
 
         logger.info("##### receiveEvent method #####");
         //récupération de la salle dont le nom correspond à celui de l'évènement
-        Room room = roomService.getRoomByName(event.getRoom());
+        RoomObject room = roomService.getRoomByName(event.getRoom());
 
         room.setAvailability(event.getEvent().equals("motion:on")? true : false);
 
