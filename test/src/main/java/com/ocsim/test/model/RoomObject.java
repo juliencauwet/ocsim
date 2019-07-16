@@ -16,9 +16,10 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Room {
+@Table(name = "room_object")
+public class RoomObject {
 
-    public Room(String name){
+    public RoomObject(String name){
         this.name = name;
     }
 
