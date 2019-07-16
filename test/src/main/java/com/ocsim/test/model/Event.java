@@ -1,5 +1,6 @@
 package com.ocsim.test.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,6 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "event")
 public class Event {
 
     @Id
@@ -30,8 +30,8 @@ public class Event {
 
     private String room;
 
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "room_object")
-    private Room roomObject;
+    private RoomObject roomObject;
 
 }

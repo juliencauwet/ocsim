@@ -23,7 +23,7 @@ public class RoomObjectService implements IRoomObjectService {
      * @param roomId
      * @return l'objet RoomObject correspondant au paramètre roomId
      */
-    public RoomObject getRoomObjectById(int roomId){
+    public RoomObject getRoomById(int roomId){
         logger.info("##### getRoomObjectById method #####");
         return roomRepository.getOne(roomId);
     }
@@ -33,7 +33,7 @@ public class RoomObjectService implements IRoomObjectService {
      * @param roomName
      * @return l'objet RoomObject correspondant au paramètre roomName
      */
-    public RoomObject getRoomObjectByName(String roomName){
+    public RoomObject getRoomByName(String roomName){
         logger.info("##### getRoomObjectByName method #####");
         return roomRepository.findByName(roomName);
     }
@@ -42,14 +42,18 @@ public class RoomObjectService implements IRoomObjectService {
      * persiste un objet RoomObject entré en paramètre
      * @param room
      */
-    public void saveRoomObject(RoomObject room){
+    public void saveRoom(RoomObject room){
         logger.info("##### saveRoomObject method #####");
         roomRepository.save(room);
     }
 
 
+    /**
+     * @return l'ensemble des salles ayant chacune au moins un évènement
+     */
     @Override
-    public List<RoomObject> findRoomObjectsWithAtLeastOneEvent() {
-        return roomRepository.findRoomsByEventsIsNotNull();
+    public List<RoomObject> findRoomsWithAtLeastOneEvent() {
+        logger.info("##### findRoomsWithAtLeastOneEvent method #####");
+        return roomRepository.findDistinctRoomsByEventsIsNotNull();
     }
 }

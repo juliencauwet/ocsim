@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface IRoomObjectService {
 
-    RoomObject getRoomObjectById(int roomId);
-    void saveRoomObject(RoomObject room);
-    RoomObject getRoomObjectByName(String roomName);
-    List<RoomObject> findRoomObjectsWithAtLeastOneEvent();
+    RoomObject getRoomById(int roomId);
+    void saveRoom(RoomObject room);
+    RoomObject getRoomByName(String roomName);
+    List<RoomObject> findRoomsWithAtLeastOneEvent();
 }

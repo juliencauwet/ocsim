@@ -1,5 +1,6 @@
 package com.ocsim.test.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,9 +32,10 @@ public class RoomObject {
 
     private boolean availability;
 
+    @JsonIgnore
     @OneToMany(
             cascade = CascadeType.ALL,
-            mappedBy = "room"
+            mappedBy = "roomObject"
     )
     private Set<Event> events = new HashSet<>();
 

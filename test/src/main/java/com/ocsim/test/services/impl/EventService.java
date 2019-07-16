@@ -1,6 +1,6 @@
 package com.ocsim.test.services.impl;
 
-import com.ocsim.test.dto.EventRepository;
+import com.ocsim.test.dao.EventRepository;
 import com.ocsim.test.model.Event;
 import com.ocsim.test.services.IEventService;
 import org.slf4j.Logger;
