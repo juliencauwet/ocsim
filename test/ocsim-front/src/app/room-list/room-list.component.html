@@ -1,10 +1,8 @@
+<h1> Liste des salles et de leur disponibillité</h1>
 <ul class="list-group">
   <li class="list-group-item" *ngFor="let room of rooms">
-    <h3> {{ user.firstName}} {{user.name}}</h3>
-    <p> {{ user.email }}</p>
-    <p *ngIf="user.hobbies && user.hobbies.length > 0">
-      Hobbies:
-      <span *ngFor="let hobby of user.hobbies"> {{ hobby }}</span>
-    </p>
+    <h3> {{room.name}} - {{ room.availability}} </h3>
+
   </li>
 </ul>
+
