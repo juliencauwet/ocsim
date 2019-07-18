@@ -1,0 +1,21 @@
+<h1> Liste des salles et de leur disponibillité</h1>
+
+<button (click)="getRooms()" class="btn btn-primary ">Salles</button>
+
+<hr>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>identifiant</th>
+      <th>statut</th>
+      <th>date dernier statut</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let room of rooms | async">
+      <td>{{room.name}}</td>
+      <td>{{room.availability === true ? 'Occupé' : 'Libre'}}</td>
+      <td>date</td>
+    </tr>
+  </tbody>
+</table>
