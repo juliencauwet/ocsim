@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RequestMapping("/events")
 @RestController
+@CrossOrigin(value = "*")
 public class EventApi {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
