@@ -8,7 +8,7 @@ import {Subject} from "rxjs";
 export class RoomsService {
 
   roomSubject = new Subject<any[]>();
-  private rooms= [];
+  private rooms = [];
 
   constructor(private httpClient: HttpClient) { }
 
@@ -18,14 +18,14 @@ export class RoomsService {
 
   getRoomsFromServer() {
     this.httpClient
-      .get<any[]>('http://localhost:8642/campaign/current')
+      .get<any[]>('http://localhost:9000/rooms/')
       .subscribe(
         (response) => {
           this.rooms = response;
-          console.log(response.length);
           for (const room of this.rooms) {
-            console.log('campaign id: ' + room.id + ': ' + room.question);
+            console.log('room ' + room.id + ': ' + room.availability);
           }
+          console.log(this.rooms);
           this.emitRoomSubject();
         },
         // tslint:disable-next-line:no-shadowed-variable
@@ -33,6 +33,13 @@ export class RoomsService {
           console.log('Erreur de chargement' + error);
         }
       );
+  }
 
+  getRooms(){
+    this.getRoomsFromServer();
+    console.log('rooms: ' + this.rooms);
+    return this.rooms;
+    this.emitRoomSubject();
+    console.log('rooms: ' + this.rooms);
   }
 }

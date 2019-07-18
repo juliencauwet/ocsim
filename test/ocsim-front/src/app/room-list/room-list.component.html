@@ -1,8 +1,12 @@
 <h1> Liste des salles et de leur disponibillité</h1>
+
+<button (click)="getRooms()" class="btn btn-primary ">Salles</button>
 <ul class="list-group">
-  <li class="list-group-item" *ngFor="let room of rooms">
+  <li class="list-group-item" *ngFor="let room of rooms | async">
     <h3> {{room.name}} - {{ room.availability}} </h3>
 
   </li>
 </ul>
+
+<table></table>
 
