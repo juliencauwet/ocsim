@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Room} from "../model/Room.option";
-import {RoomsService} from "../services/rooms.service";
+import {Room} from "../../model/Room.option";
+import {RoomsService} from "../../services/rooms.service";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
