@@ -37,9 +37,13 @@ public class EventApi {
         //récupération de la salle dont le nom correspond à celui de l'évènement
         RoomObject room = roomService.getRoomByName(event.getRoom());
 
+        //si l'évènement est "motion:on", on attribue true à la disponibilité de la salle, sinon false
         room.setAvailability(event.getEvent().equals("motion:on")? true : false);
 
+        //on enregistre la salle avec disponibilité mise à jour en BDD
         roomService.saveRoom(room);
+
+        //on attribue la salle à l'évènement et on l'enregistre
         event.setRoomObject(room);
         eventService.saveEvent(event);
     }
