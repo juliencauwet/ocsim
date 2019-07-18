@@ -22,5 +22,9 @@ public class TestApplication implements CommandLineRunner {
 		RoomObject room = new RoomObject();
 		room.setName("salle_1");
 		roomService.saveRoom(room);
+
+		RoomObject room2 = new RoomObject();
+		room2.setName("salle_2");
+		roomService.saveRoom(room2);
 	}
 }
