@@ -1,4 +1,4 @@
-<h1> Liste des salles et de leur disponibillité</h1>
+<h4> Liste des salles et de leur disponibillité</h4>
 
 <button (click)="getRooms()" class="btn btn-primary ">Salles</button>
 
@@ -14,7 +14,7 @@
   <tbody>
     <tr *ngFor="let room of rooms | async">
       <td>{{room.name}}</td>
-      <td>{{room.availability === true ? 'Occupé' : 'Libre'}}</td>
+      <td [ngStyle]="{color: room.availability === true ? 'red' : 'green'}">{{room.availability === true ? 'Occupé' : 'Libre'}}</td>
       <td>date</td>
     </tr>
   </tbody>

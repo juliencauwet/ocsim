@@ -14,14 +14,18 @@ export class RoomListComponent implements OnInit {
 
   readonly ROOT_URL = 'http://localhost:9000/rooms/';
 
-  constructor(private roomService: RoomsService, private httpClient: HttpClient) { }
+  constructor(private roomService: RoomsService, private httpClient: HttpClient) {
+  }
 
   ngOnInit() {
     this.getRooms();
   }
 
-  getRooms(){
+  getRooms() {
     this.rooms = this.httpClient.get(this.ROOT_URL);
   }
-
 }
+
+
+
+
