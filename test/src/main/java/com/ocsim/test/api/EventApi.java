@@ -49,4 +49,16 @@ public class EventApi {
         eventService.saveEvent(event);
     }
 
+
+    /**
+     *
+     * @param roomId
+     * @return le dernier évènement de la salle
+     */
+    @GetMapping("/room/{roomId}")
+    public Event getRoomsLastEvent(@PathVariable int roomId ){
+        logger.info("##### getRoomsLastEvent method #####");
+        return eventService.getRoomsLastEvent(roomId);
+    }
+
 }

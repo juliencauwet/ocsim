@@ -23,9 +23,10 @@ public class RoomObjectService implements IRoomObjectService {
      * @param roomId
      * @return l'objet RoomObject correspondant au paramètre roomId
      */
+    @Override
     public RoomObject getRoomById(int roomId){
         logger.info("##### getRoomObjectById method #####");
-        return roomRepository.getOne(roomId);
+        return roomRepository.findById(roomId);
     }
 
     /**
@@ -33,6 +34,7 @@ public class RoomObjectService implements IRoomObjectService {
      * @param roomName
      * @return l'objet RoomObject correspondant au paramètre roomName
      */
+    @Override
     public RoomObject getRoomByName(String roomName){
         logger.info("##### getRoomObjectByName method #####");
         return roomRepository.findByName(roomName);
@@ -42,6 +44,7 @@ public class RoomObjectService implements IRoomObjectService {
      * persiste un objet RoomObject entré en paramètre
      * @param room
      */
+    @Override
     public void saveRoom(RoomObject room){
         logger.info("##### saveRoomObject method #####");
         roomRepository.save(room);

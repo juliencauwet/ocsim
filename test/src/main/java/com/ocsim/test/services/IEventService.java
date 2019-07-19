@@ -5,4 +5,5 @@ import com.ocsim.test.model.Event;
 public interface IEventService {
 
     void saveEvent(Event event);
+    Event getRoomsLastEvent(int roomId);
 }
