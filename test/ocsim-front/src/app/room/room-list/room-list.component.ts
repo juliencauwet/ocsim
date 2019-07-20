@@ -11,8 +11,11 @@ import {HttpClient} from "@angular/common/http";
 export class RoomListComponent implements OnInit {
 
   rooms: any;
+  event;
 
-  readonly ROOT_URL = 'http://localhost:9000/rooms/';
+  readonly ALL_ROOMS_URL = 'http://localhost:9000/rooms/';
+
+  readonly LAST_EVENT_URL = 'http://localhost:9000/events/room/';
 
   constructor(private roomService: RoomsService, private httpClient: HttpClient) {
   }
@@ -22,7 +25,16 @@ export class RoomListComponent implements OnInit {
   }
 
   getRooms() {
-    this.rooms = this.httpClient.get(this.ROOT_URL);
+    this.rooms = this.httpClient.get(this.ALL_ROOMS_URL);
+  }
+
+  getLastEvent(id : number){
+    let event;
+      event = this.httpClient.get(this.LAST_EVENT_URL + id);
+      console.log("event:" + event.time);
+      console.log(this.LAST_EVENT_URL + id);
+      console.log(this.httpClient.get(this.LAST_EVENT_URL + id));
+      return event.time;
   }
 }
 

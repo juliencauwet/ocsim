@@ -8,14 +8,14 @@
     <tr>
       <th>identifiant</th>
       <th>statut</th>
-      <th>date dernier statut</th>
+      <th>dernier évènement</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let room of rooms | async">
+    <tr *ngFor="let room of rooms | async; let i = index">
       <td>{{room.name}}</td>
       <td [ngStyle]="{color: room.availability === true ? 'red' : 'green'}">{{room.availability === true ? 'Occupé' : 'Libre'}}</td>
-      <td>date</td>
+      <td>{{ getLastEvent(+room.id) | async}}</td>
     </tr>
   </tbody>
 </table>

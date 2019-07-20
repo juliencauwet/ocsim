@@ -45,9 +45,9 @@ public class RoomObjectService implements IRoomObjectService {
      * @param room
      */
     @Override
-    public void saveRoom(RoomObject room){
+    public RoomObject saveRoom(RoomObject room){
         logger.info("##### saveRoomObject method #####");
-        roomRepository.save(room);
+        return roomRepository.save(room);
     }
 
 

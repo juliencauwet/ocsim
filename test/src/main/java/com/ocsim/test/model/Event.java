@@ -20,6 +20,12 @@ import java.util.Date;
 @AllArgsConstructor
 public class Event {
 
+    public Event(Date time, String event, String room){
+        this.time = time;
+        this.event = event;
+        this.room = room;
+    }
+
     @Id
     @GeneratedValue
     private int id;

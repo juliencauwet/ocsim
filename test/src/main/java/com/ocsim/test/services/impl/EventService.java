@@ -24,12 +24,12 @@ public class EventService implements IEventService {
      * @param event
      */
     @Override
-    public void saveEvent(Event event){
-        eventRepository.save(event);
+    public Event saveEvent(Event event){
+        return eventRepository.save(event);
     }
 
     /**
-     *
+     *recherche le dernier évènement
      * @param roomId
      * @return
      */
