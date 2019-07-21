@@ -37,6 +37,10 @@ public class EventService implements IEventService {
     public Event getRoomsLastEvent(int roomId) {
         logger.info("##### getRoomsLastEvent method #####");
         RoomObject room = roomObjectService.getRoomById(roomId);
+
+        if(room == null)
+            throw new NullPointerException("Il n'y a pas de salle correspondant à l'id");
+
         return eventRepository.findTopByRoomObjectOrderByTimeDesc(room);
     }
 
