@@ -25,19 +25,20 @@ public class RoomObjectService implements IRoomObjectService {
      */
     @Override
     public RoomObject getRoomById(int roomId){
-        logger.info("##### getRoomObjectById method #####");
+        logger.info("##### getRoomById method #####");
         return roomRepository.findById(roomId);
     }
 
     /**
-     * récupère l'objet en base de données correspondant au nom de salle entré en paramètre
+     * récupère l'objet en base de données correspondant au nom de salle entré en paramètre, ou un nouveau RoomObject avec le nom en paramètre
      * @param roomName
-     * @return l'objet RoomObject correspondant au paramètre roomName
+     * @return l'objet RoomObject correspondant au paramètre roomName ou un nouvel objet RoomObject
      */
     @Override
     public RoomObject getRoomByName(String roomName){
         logger.info("##### getRoomObjectByName method #####");
-        return roomRepository.findByName(roomName);
+        RoomObject room = roomRepository.findByName(roomName);
+        return room == null ? new RoomObject(roomName) : room;
     }
 
     /**

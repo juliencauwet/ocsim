@@ -26,4 +26,5 @@ public class EventApiTest extends AbstractTestClass {
         int status = mvcResult.getResponse().getStatus();
         assertEquals(200, status);
     }
+
 }
