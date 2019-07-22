@@ -1,16 +1,37 @@
+Je vous remercie pour l'examen de ce test.
 
-Pour lancer le projet, se placer à la base du projet 
+Pour lancer le projet, se placer à la source du projet (où se trouve le pom.xml):
+lancer la commande
+_mvn clean install_
+
+Maven va effectuer et un build et, après tests, générer une image docker grâce au dockerfile-maven-plugin et au Dockerfile.
+
+Toujours depuis la source, lancer:
+_docker-compose up_
+
+Docker va instancier 2 containers:
+- 1 pour la base de données répertoriant les salles et leurs évènements
+- 1 pour l'API Rest
+
+Pour lancer le front, se déplacer dans le répertoire ocsin-front et lancer:
+_ng serve_
+
+Vous pouvez vous rendre sur http://localhost:4200 pour vous rendre sur la liste des salles
 
 
-#### 1. Composition / services
+####  Composition / services
   * Une API Rest
   * Une application Client
   * Une base de donnée
 
-#### 2. Services 
-Déployer le web service biblioback et la base de données dans un container
-  * _Une API rest_ 
-  * _docker-compose up_
-  
-  <b>L'application est alors déployée dans un container accessible depuis le port  de la machine hôte</b>
+#### Stack 
+ 
+ Base de données: Postgresql
+ 
+ API Rest: Java 8, Spring Boot, Hibernate/JPA,
+ 
+ Client: Angular, Bootstrap, HTML, CSS
+ 
+ Configuration, DevOps: Docker, Maven
+ 
 
