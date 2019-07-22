@@ -40,7 +40,7 @@ public class EventService implements IEventService {
 
         if(room == null)
             throw new NullPointerException("Il n'y a pas de salle correspondant à l'id");
-
+        logger.info(eventRepository.findTopByRoomObjectOrderByTimeDesc(room).toString());
         return eventRepository.findTopByRoomObjectOrderByTimeDesc(room);
     }
 
