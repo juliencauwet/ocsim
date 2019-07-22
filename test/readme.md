@@ -34,4 +34,39 @@ Vous pouvez vous rendre sur http://localhost:4200 pour vous rendre sur la liste 
  
  Configuration, DevOps: Docker, Maven
  
+#### Différentes URLs pour tester l'API:
 
+Un CommandLineRunner à la base de l'application est implémenté pour initialiser quelques données au démarrage:
+
+
+* #####enregistrer un évènement:
+
+POST
+http://localhost:9001/events/
+
+ex:
+_{
+	"time": "2019-07-30T16:27:32",
+    "event": "motion:off",
+	"room": "salle_1"
+}_
+
+* #####recevoir le dernier évènement dde salle la salle 1 
+
+GET
+http://localhost:9001/events/last/1
+
+* #####recevoir l'historique des évènements de salle la salle 1 
+
+GET
+http://localhost:9001/rooms/history/1
+
+* #####recevoir l'ensemble des salles ayant reçu au moins un évènement
+
+GET
+http://localhost:9001/rooms/
+
+* #####recevoir l'ensemble des salles ayant contenant l'expression "sa"
+
+GET
+http://localhost:9001/rooms/sa
