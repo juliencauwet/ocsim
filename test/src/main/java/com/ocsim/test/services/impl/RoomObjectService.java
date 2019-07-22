@@ -60,4 +60,14 @@ public class RoomObjectService implements IRoomObjectService {
         logger.info("##### findRoomsWithAtLeastOneEvent method #####");
         return roomRepository.findDistinctRoomsByEventsIsNotNull();
     }
+
+    /**
+     *
+     * @param key
+     * @return une liste de salles dont le nom contient l'expression entrée en paramètre
+     */
+    @Override
+    public List<RoomObject> searchRoomsContainingCharacters(String key) {
+        return roomRepository.findByNameContainingIgnoreCase(key);
+    }
 }

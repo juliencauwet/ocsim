@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 /**
  * point d'entrée de l'API concernant les évènements
@@ -35,6 +37,7 @@ public class EventApi {
     public void receiveEvent(@RequestBody Event event){
 
         logger.info("##### receiveEvent method #####");
+        logger.info("évènement reçu:" + event.toString());
         //récupération de la salle dont le nom correspond à celui de l'évènement
         RoomObject room = roomService.getRoomByName(event.getRoom());
 
@@ -49,15 +52,16 @@ public class EventApi {
         eventService.saveEvent(event);
     }
 
-
     /**
      *
      * @param roomId
      * @return le dernier évènement de la salle
      */
-    @GetMapping("/room/{roomId}")
+    @GetMapping("/room/last/{roomId}")
     public Event getRoomsLastEvent(@PathVariable int roomId ){
         logger.info("##### getRoomsLastEvent method #####");
+        logger.info("id de la salle:" + roomId);
+
         try {
             return eventService.getRoomsLastEvent(roomId);
         }catch (NullPointerException e){
@@ -67,4 +71,16 @@ public class EventApi {
 
     }
 
+    /**
+     *
+     * @param roomId
+     * @return l'historique des 100 derniers évènements
+     */
+    @GetMapping("/room/history/{roomId}")
+    public List<Event> getEventsHistoryByRoom(@PathVariable("roomId") int roomId){
+        logger.info("##### getEventsHistoryByRoom method #####");
+        logger.info("id de la salle:" + roomId);
+
+        return eventService.getListOfEventsperRoom(roomId);
+    }
 }
