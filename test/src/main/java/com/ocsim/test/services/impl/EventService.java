@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EventService implements IEventService {
 
@@ -25,6 +27,8 @@ public class EventService implements IEventService {
      */
     @Override
     public Event saveEvent(Event event){
+        logger.info("##### saveEvent method #####");
+        logger.info("évènement entré: " + event.toString());
         return eventRepository.save(event);
     }
 
@@ -42,6 +46,18 @@ public class EventService implements IEventService {
             throw new NullPointerException("Il n'y a pas de salle correspondant à l'id");
         logger.info(eventRepository.findTopByRoomObjectOrderByTimeDesc(room).toString());
         return eventRepository.findTopByRoomObjectOrderByTimeDesc(room);
+    }
+
+    /**
+     * récupère la salle par son id
+     * @param roomId
+     * @return l'historique des 100 derniers évènements d'une salle
+     */
+    public List<Event> getListOfEventsperRoom(int roomId){
+        logger.info("##### getListOfEventsperRoom method #####");
+        logger.info("id de la salle: " + roomId);
+        RoomObject room = roomObjectService.getRoomById(roomId);
+        return eventRepository.findTop100ByRoomObjectOrderByTimeDesc(room);
     }
 
 }

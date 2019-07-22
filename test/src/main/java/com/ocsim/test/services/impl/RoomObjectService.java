@@ -25,7 +25,7 @@ public class RoomObjectService implements IRoomObjectService {
      */
     @Override
     public RoomObject getRoomById(int roomId){
-        logger.info("##### getRoomObjectById method #####");
+        logger.info("##### getRoomById method #####");
         return roomRepository.findById(roomId);
     }
 
