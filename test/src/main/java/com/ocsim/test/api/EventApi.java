@@ -60,7 +60,14 @@ public class EventApi {
     public Event getRoomsLastEvent(@PathVariable int roomId ){
         logger.info("##### getRoomsLastEvent method #####");
         logger.info("id de la salle:" + roomId);
-        return eventService.getRoomsLastEvent(roomId);
+
+        try {
+            return eventService.getRoomsLastEvent(roomId);
+        }catch (NullPointerException e){
+            logger.warn("La salle n'est pas enregistrée");
+            return null;
+        }
+
     }
 
 }

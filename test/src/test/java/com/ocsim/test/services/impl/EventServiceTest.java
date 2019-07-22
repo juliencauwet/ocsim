@@ -84,8 +84,16 @@ public class EventServiceTest {
      * vérifie que l'évènement retourné par la méthode pour l'objet room (qui a 2 évènements)  est le plus récent (celui créé maintenant)
      */
     @Test
-    public void getRoomsLastEvent() {
+    public void getRoomsLastEventIfOk() {
         Event event = eventService.getRoomsLastEvent(room.getId());
         Assert.assertEquals(event3.getTime(), event.getTime());
+    }
+
+    /**
+     * Renvoie un NullPointerException si la salle n'existe pas
+     */
+    @Test(expected = NullPointerException.class)
+    public void getRoomsLastEventIfRoomDoesNotExist(){
+        eventService.getRoomsLastEvent(-1234);
     }
 }
