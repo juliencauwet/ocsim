@@ -1,23 +1,12 @@
 version: '3'
 
 services:
-  ocsim:
-    container_name: ocsim
-    build:
-      context: .
-    image: juliencauwet/ocsim:0.0.1-SNAPSHOT
-    environment:
-      - spring.profiles.active=docker
-    ports:
-      - "9001:9001"
-    depends_on:
-      - dbocsim
 
-  dbocsim:
+  db-ocsim-lh:
     image: postgres:alpine
     ports:
       - '5432:5432'
-    container_name: dbocsim
+    container_name: db_ocsim-lh
     environment:
       POSTGRES_DB: db_ocsim
       POSTGRES_USER: ocsim
