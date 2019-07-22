@@ -35,6 +35,7 @@ public class EventApi {
     public void receiveEvent(@RequestBody Event event){
 
         logger.info("##### receiveEvent method #####");
+        logger.info("évènement reçu:" + event.toString());
         //récupération de la salle dont le nom correspond à celui de l'évènement
         RoomObject room = roomService.getRoomByName(event.getRoom());
 
@@ -58,6 +59,7 @@ public class EventApi {
     @GetMapping("/room/{roomId}")
     public Event getRoomsLastEvent(@PathVariable int roomId ){
         logger.info("##### getRoomsLastEvent method #####");
+        logger.info("id de la salle:" + roomId);
         return eventService.getRoomsLastEvent(roomId);
     }
 

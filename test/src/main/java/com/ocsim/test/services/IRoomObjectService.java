@@ -10,4 +10,5 @@ public interface IRoomObjectService {
     RoomObject saveRoom(RoomObject room);
     RoomObject getRoomByName(String roomName);
     List<RoomObject> findRoomsWithAtLeastOneEvent();
+    List<RoomObject> searchRoomsContainingCharacters(String key);
 }

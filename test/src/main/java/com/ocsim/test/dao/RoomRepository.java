@@ -12,6 +12,7 @@ public interface RoomRepository extends JpaRepository <RoomObject, Integer> {
     RoomObject findById(int id);
     RoomObject findByName(String name);
     List<RoomObject> findDistinctRoomsByEventsIsNotNull();
+    List<RoomObject> findByNameContainingIgnoreCase(String name);
 
 
 }
