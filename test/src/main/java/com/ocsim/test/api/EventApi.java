@@ -58,7 +58,13 @@ public class EventApi {
     @GetMapping("/room/{roomId}")
     public Event getRoomsLastEvent(@PathVariable int roomId ){
         logger.info("##### getRoomsLastEvent method #####");
-        return eventService.getRoomsLastEvent(roomId);
+        try {
+            return eventService.getRoomsLastEvent(roomId);
+        }catch (NullPointerException e){
+            logger.warn("La salle n'est pas enregistrée");
+            return null;
+        }
+
     }
 
 }

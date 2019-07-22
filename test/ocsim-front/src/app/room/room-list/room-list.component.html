@@ -15,7 +15,8 @@
     <tr *ngFor="let room of rooms | async; let i = index">
       <td>{{room.name}}</td>
       <td [ngStyle]="{color: room.availability === true ? 'red' : 'green'}">{{room.availability === true ? 'Occupé' : 'Libre'}}</td>
-      <td>{{ getLastEvent(+room.id) | async}}</td>
+      <td> {{ getLastEvent(room.id) | date}} </td>
     </tr>
+
   </tbody>
 </table>
